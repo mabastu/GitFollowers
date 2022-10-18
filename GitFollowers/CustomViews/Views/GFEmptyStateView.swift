@@ -14,35 +14,43 @@ class GFEmptyStateView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        configure()
+        configureMessageLabel()
+        configureImageLogo()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    init(message: String) {
-        super.init(frame: .zero)
+    convenience init(message: String) {
+        self.init(frame: .zero)
         self.messageLabel.text = message
-        configure()
     }
     
-    private func configure() {
+    private func configureMessageLabel() {
         addSubview(messageLabel)
-        addSubview(logoImageView)
-        
         messageLabel.numberOfLines = 3
         messageLabel.textColor = .secondaryLabel
         
-        logoImageView.image = UIImage(named: "empty-state-logo")
+        let labelCenterYConstraint: CGFloat = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? -50 : -150
+        
+        let messageLabelCenterYConstraint =  messageLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: labelCenterYConstraint)
+        messageLabelCenterYConstraint.isActive = true
+        
+        NSLayoutConstraint.activate([
+            messageLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 40),
+            messageLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -40),
+            messageLabel.heightAnchor.constraint(equalToConstant: 200)
+        ])
+    }
+    
+    private func configureImageLogo() {
+        addSubview(logoImageView)
+        
+        logoImageView.image = Images.emptyStateLogo
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            messageLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -150),
-            messageLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 40),
-            messageLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -40),
-            messageLabel.heightAnchor.constraint(equalToConstant: 200),
-            
             logoImageView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1.0),
             logoImageView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.5),
             logoImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 130),
