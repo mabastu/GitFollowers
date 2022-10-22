@@ -13,6 +13,8 @@ protocol UserInfoVCDelegate {
 
 class UserInfoVC: GFDataLoadingVC {
     
+    let scrollView = UIScrollView()
+    let scrollViewContentView = UIView()
     let headerView  = UIView()
     let itemViewOne = UIView()
     let itemViewTwo = UIView()
@@ -32,6 +34,19 @@ class UserInfoVC: GFDataLoadingVC {
         view.backgroundColor = .systemBackground
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismssVC))
         navigationItem.rightBarButtonItem = doneButton
+    }
+    
+    func configureScrollView() {
+        view.addSubview(scrollView)
+        scrollView.addSubview(scrollViewContentView)
+    
+        scrollView.pinToEdges(of: view)
+        scrollViewContentView.pinToEdges(of: scrollView)
+        
+        NSLayoutConstraint.activate([
+            scrollViewContentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            scrollViewContentView.heightAnchor.constraint(equalToConstant: 600)
+        ])
     }
     
     func getUserInfo() {
@@ -60,7 +75,7 @@ class UserInfoVC: GFDataLoadingVC {
         itemViews = [headerView, itemViewOne, itemViewTwo, dateLabel]
         
         for itemView in itemViews {
-            view.addSubview(itemView)
+            scrollViewContentView .addSubview(itemView)
             itemView.translatesAutoresizingMaskIntoConstraints = false
         }
         
@@ -68,9 +83,9 @@ class UserInfoVC: GFDataLoadingVC {
         let itemHeight: CGFloat = 140
         
         NSLayoutConstraint.activate([
-            headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: padding),
-            headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
+            headerView.topAnchor.constraint(equalTo: scrollViewContentView.topAnchor),
+            headerView.leadingAnchor.constraint(equalTo: scrollViewContentView.leadingAnchor,constant: padding),
+            headerView.trailingAnchor.constraint(equalTo: scrollViewContentView.trailingAnchor, constant: -padding),
             headerView.heightAnchor.constraint(equalToConstant: 210),
             
             itemViewOne.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: padding),
