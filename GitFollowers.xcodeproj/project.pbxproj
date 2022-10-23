@@ -120,10 +120,10 @@
 			children = (
 				0A054D1928DB1C1B002414D4 /* Utilities */,
 				0A054D1628D9E5FF002414D4 /* Managers */,
-				0A054D1428D90E0A002414D4 /* Screens */,
-				0A054D1128D90DC4002414D4 /* CustomViews */,
-				0A054D1328D90DF5002414D4 /* Extentions */,
 				0A054D1228D90DE5002414D4 /* Model */,
+				0A054D1328D90DF5002414D4 /* Extentions */,
+				0A054D1128D90DC4002414D4 /* CustomViews */,
+				0A054D1428D90E0A002414D4 /* Screens */,
 				0A054CE828D90A7E002414D4 /* Assets.xcassets */,
 				0A054CE128D90A7D002414D4 /* SceneDelegate.swift */,
 				0A054CDF28D90A7D002414D4 /* AppDelegate.swift */,
@@ -171,9 +171,9 @@
 		0A054D1428D90E0A002414D4 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				0A054CFB28D90D55002414D4 /* FavoritesListVC.swift */,
-				0A054CFC28D90D55002414D4 /* FollowerListVC.swift */,
 				0A054CFD28D90D55002414D4 /* SearchVC.swift */,
+				0A054CFC28D90D55002414D4 /* FollowerListVC.swift */,
+				0A054CFB28D90D55002414D4 /* FavoritesListVC.swift */,
 				0AEF28E828E2D25C002FD7D0 /* UserInfoVC.swift */,
 			);
 			path = Screens;
