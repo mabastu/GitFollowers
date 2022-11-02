@@ -3,6 +3,7 @@
 
 GitFollower app allows the user to search for Github users hitting the GitHub API, you can add and save github users to a favorites list via local persistence, view followers, view repos via safari services.
 
+<img width="210" height="450" alt="Screenshot 2020-05-26 at 17 07 57" src="Simulator-Screen-Shot-i-Phone-14-Pro-2022-11-02-at-22-55-09.png">
 <img width="210" height="450" alt="Screenshot 2020-05-26 at 17 07 57" src="https://i.postimg.cc/hGSGCHBM/Simulator-Screen-Shot-i-Phone-13-Pro-2022-11-02-at-22-57-13.png">  <img width="210" height="450" alt="Screenshot 2020-05-26 at 17 08 15" src="https://user-images.githubusercontent.com/44005264/82910930-e9282880-9f73-11ea-9c4e-2923bd4407bf.png"> 
 <img width="210" height="450" alt="Screenshot 2020-05-26 at 17 16 32" src="https://user-images.githubusercontent.com/44005264/82911544-af0b5680-9f74-11ea-8d81-223395cbe05c.png">
 
